@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Perguntas</title>
+    <%- include ("partials/header") %> 
+</head>
+<body>
+    <%- include ("partials/navbar") %> 
+
+    <div class="container">
+        <br>
+        <a href="/ask">
+            <button class="btn btn-primary">Fazer uma pergunta</button>
+        </a>
+        <br><br>
+        <% perguntas.forEach((pergunta) => { %>
+        <div class="card">
+            <div class="card-body">
+                <h4><%= pergunta.title %></h4>
+            </div>
+            <div class="card-header">
+                <a href="question/<%= pergunta.id %>"><button class="btn btn-primary">Responder</button></a>
+            </div>
+        </div>
+        <br>
+        <% }); %> 
+    </div>
+    <%- include ("partials/footer") %> 
+</body>
+</html>

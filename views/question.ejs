@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pergunta</title>
+    <%- include ("partials/header") %> 
+</head>
+<body>
+    <%- include ("partials/navbar") %> 
+
+    <div class="container">
+        <br>
+        <div class="card">
+            <div class="card-header">
+                <h4><%= pergunta.title %></h4>
+            </div>
+            <div class="card-body">
+                <p>
+                    <%= pergunta.description %>
+                </p>
+                <hr>
+                <form method="POST" action="/saveanswer">
+                    <input type="hidden" name="idPergunta" value="<%= pergunta.id %>">
+                    <textarea class="form-control" placeholder="Sua resposta" name="answer"></textarea>
+                    <br>
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                    <hr>
+                    <h4>Respostas anteriores:</h4>
+                    <% respostas.forEach((resposta) => { %>
+                        <p>
+                            <%= resposta.description %>
+                        </p>
+                    <% }); %>
+                </form>
+            </div>
+        </div>
+        <br>
+    </div>
+    <%- include ("partials/footer") %> 
+</body>
+</html>
