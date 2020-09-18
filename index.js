@@ -82,10 +82,8 @@ app.post("/saveanswer", (req, res) => {
     });
 });
 
-app.listen(80, (error) => {
-    if (error) {
-        console.log("ERROR!")
-    } else {
-        console.log("SERVER OK!")
-    }
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, err => {
+    if(err) throw err;
+    console.log("%c Server running", "color: green");
 });
