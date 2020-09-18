@@ -82,7 +82,7 @@ app.post("/saveanswer", (req, res) => {
     });
 });
 
-app.listen(8080, (error) => {
+app.listen(80, (error) => {
     if (error) {
         console.log("ERROR!")
     } else {
