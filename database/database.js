@@ -1,10 +1,8 @@
-const Sequelize = require("sequelize");
-const mysql2 = require("mysql2")
+const Sequelize = require('sequelize');
 
-const connection = new Sequelize("perguntas_respostas", "root", "", {
-    host: "localhost",
-    dialect: "mysql",
-    dialectModule: mysql2
-});
+const connection = new Sequelize({
+    dialect: 'sqlite',
+    storage: './database/db.sqlite'
+  });
 
-module.exports = connection;
+  module.exports = connection;
