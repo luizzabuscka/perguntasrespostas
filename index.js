@@ -32,6 +32,29 @@ app.get("/", (req, res) => {
 
 });
 
+app.get("/v1/questions", (req, res) => {
+    var perguntas = Pergunta.findAll({ raw: true, order: [
+        ['id', 'DESC']
+    ]}).then((perguntas) => {
+        res.send(perguntas)
+    });
+});
+
+app.post("/v1/savequestion", (req, res) => {
+    var title = req.body.title;
+    var description = req.body.description;
+
+    Pergunta.create({
+        title: title,
+        description: description
+    }).then(() => {
+        res.send(true);
+    }).catch((error) => {
+        console.log("Error saving question!")
+        res.send(false);
+    });
+});
+
 app.get("/ask", (req, res) => {
     res.render("ask");
 });
